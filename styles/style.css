@@ -44,24 +44,16 @@ header h1 {
   text-shadow: 0 2px 4px rgba(0,0,0,0.55);
 }
 
-/* HERO: blurb left, cover right */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 360px; /* left text, right cover */
-  gap: 22px;
-  align-items: start; /* top-align cover and blurb */
-}
-
-/* Blurb card */
+/* Full-width blurb card */
 .card-blurb {
   background-color: var(--dark-blue);
   border-radius: 12px;
-  padding: 20px;
+  padding: 20px 25px; /* A little more horizontal padding */
   box-shadow: 0 10px 30px rgba(2,10,20,0.35);
   color: var(--title);
-  overflow: visible; /* no scrolling */
-  font-size: .9rem; /* unified font size increased */
+  font-size: .9rem;
   line-height: 1.0;
+  margin-bottom: 18px; /* Space below the blurb */
 }
 /* Bold lead paragraph, same size */
 .card-blurb .lead {
@@ -86,35 +78,39 @@ header h1 {
   font-size: 1.04rem;
 }
 
-/* Cover plate */
+/* NEW: Two-column container for cover and form */
+.layout-row {
+  display: flex;
+  gap: 22px;
+  align-items: stretch; /* This makes the columns equal height */
+}
+
+/* Cover plate (Left Column) */
 .cover-plate {
+  flex: 0 0 360px; /* Set a fixed width for the cover column */
   border-radius: 10px;
   overflow: hidden;
   background: rgba(255,255,255,0.02);
   box-shadow: 0 12px 30px rgba(2,10,20,0.45);
-  display:flex;
-  align-items:flex-start; /* top of image aligns with top of blurb outer edge */
+  display:flex; /* Use flex to center the image vertically */
+  align-items:center;
   justify-content:center;
-  padding: 6px;
-  box-sizing: border-box;
+  padding: 12px;
 }
 .cover-plate img {
   display:block;
   width: 100%;
   height: auto;
   max-width: 100%;
-  max-height: 100%;
 }
-
 /* Downloads: single centered row */
 .card-downloads {
   background-color: var(--alt1);
   border-radius: 12px;
-  padding: 16px;
+  padding: 25px 16px; /* A little more top/bottom padding */
   margin-top: 18px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: inline-block; /* This is the main fix */
+  text-align: center; /* This will center the text */
   box-shadow: 0 8px 22px rgba(2,10,20,0.18);
 }
 .btn-row {
@@ -235,10 +231,7 @@ header h1 {
   height: 20px;
   fill: currentColor;
 }
-.linkedin-logo {
-  width: 20px!important;
-  height: 20px!important;
-}
+
 /* final tagline + footer */
 .final-tagline {
   margin-top: 22px;
