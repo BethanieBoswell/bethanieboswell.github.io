@@ -109,7 +109,8 @@ header h1 {
   border-radius: 12px;
   padding: 25px 16px; /* A little more top/bottom padding */
   margin-top: 18px;
-  display: inline-block; /* This is the main fix */
+  display: block; /* This is the main fix */
+  flex: 1;
   text-align: center; /* This will center the text */
   box-shadow: 0 8px 22px rgba(2,10,20,0.18);
 }
