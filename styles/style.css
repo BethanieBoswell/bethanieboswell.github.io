@@ -48,51 +48,48 @@ header h1 {
 .card-blurb {
   background-color: var(--dark-blue);
   border-radius: 12px;
-  padding: 20px 25px; /* A little more horizontal padding */
+  padding: 20px 25px;
   box-shadow: 0 10px 30px rgba(2,10,20,0.35);
   color: var(--title);
-  font-size: 1.2rem;
-  line-height: 1.0;
-  margin-bottom: 18px; /* Space below the blurb */
+  margin-bottom: 18px;
 }
-/* Bold lead paragraph, same size */
+/* Bold lead paragraph */
 .card-blurb .lead {
   font-weight: 700;
   color: var(--yellow);
-  font-size: 1.54rem; /* same as body */
-  margin: 0 0 12px 0;
-  /* faint black outline for yellow accent text */
+  font-size: 1.54rem;
+  margin: 0 0 1em 0;
   text-shadow: 0 2px 4px rgba(0,0,0,0.55);
 }
-.card-blurb p, .card-blurb ul {
-  margin: 0 0 12px 0;
+
+/* --- THIS SECTION IS NOW CONSOLIDATED FOR CONSISTENCY --- */
+.card-blurb p, .card-blurb li {
   color: rgba(232,222,203,0.98);
-  font-size: 1.2rem;
+  font-size: 1.1rem;   /* A consistent base font size */
+  line-height: 1.5;    /* A consistent line height */
+  margin: 0 0 1em 0;   /* A consistent bottom margin */
 }
 .card-blurb ul {
-  margin-left: 1.25rem;
+  margin: 0 0 1em 1.25rem; /* Keep indent on list, add bottom margin */
+  padding: 0;
 }
-.card-blurb li {
-  margin: 8px 0;
-  line-height: 1.35;
-  font-size: 1.2rem;
-}
+/* -------------------------------------------------------- */
 
-/* NEW: Two-column container for cover and form */
+/* Two-column container for cover and form */
 .layout-row {
   display: flex;
   gap: 22px;
-  align-items: stretch; /* This makes the columns equal height */
+  align-items: stretch;
 }
 
 /* Cover plate (Left Column) */
 .cover-plate {
-  flex: 0 0 360px; /* Set a fixed width for the cover column */
+  flex: 0 0 360px;
   border-radius: 10px;
   overflow: hidden;
   background: rgba(255,255,255,0.02);
   box-shadow: 0 12px 30px rgba(2,10,20,0.45);
-  display:flex; /* Use flex to center the image vertically */
+  display:flex;
   align-items:center;
   justify-content:center;
   padding: 12px;
@@ -103,17 +100,16 @@ header h1 {
   height: auto;
   max-width: 100%;
 }
-/* Downloads: single centered row */
+/* Downloads panel */
 .card-downloads {
   background-color: var(--alt1);
   border-radius: 12px;
-  padding: 25px 16px; /* A little more top/bottom padding */
+  padding: 25px 16px;
   display: block; 
   flex: 1;
   text-align: center; 
   box-shadow: 0 8px 22px rgba(2,10,20,0.18);
 }
-/* Add this new rule for the form instruction text */
 .form-instructions {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
 }
@@ -150,21 +146,16 @@ header h1 {
   margin-top: 18px;
   padding: 0 6px;
 }
-
-/* Container with flex for text and image side by side */
 .author-meta {
   background-color: rgba(255,255,255,0.03);
   border-radius: 12px;
   padding: 18px;
   box-shadow: 0 8px 22px rgba(2,10,20,0.12);
-
   display: flex;
   gap: 18px;
-  align-items: flex-start; /* top align image with first line of text */
+  align-items: flex-start;
   color: rgba(232,222,203,0.98);
 }
-
-/* Left side: header + body text stacked vertically */
 .author-text-container {
   flex: 1 1 auto;
   display: flex;
@@ -184,12 +175,10 @@ header h1 {
   font-size: 1rem;
   line-height: 1.5;
 }
-
-/* Right side: image + button stacked vertically, centered */
 .author-image-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center horizontally */
+  align-items: center;
   flex-shrink: 0;
 }
 .author-pic {
@@ -199,15 +188,13 @@ header h1 {
   border-radius: 8px;
   box-shadow: 0 12px 36px rgba(0,0,0,0.45);
   display: block;
-  margin-bottom: 12px; /* spacing below image */
+  margin-bottom: 12px;
 }
-
-/* Connect button below author pic */
 .connect-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 180px; /* same width as author pic */
+  width: 180px;
   background-color: var(--linkedin-blue);
   color: #fff;
   font-weight: 700;
@@ -257,34 +244,22 @@ footer {
 
 /* Responsive */
 @media (max-width: 980px){
-  .cover-plate { max-width: 420px;
-               flex-basis: auto;}
+  .cover-plate { 
+    max-width: 420px;
+    flex-basis: auto;
+  }
   .layout-row {
     flex-direction: column;
-    align-items: center; /* <-- THIS IS THE FIX */
-  }
-  .author-meta {
-    flex-direction: column;
     align-items: center;
-    text-align: center;
   }
-  .author-text-container {
-    order: 2;
+  
+  /* --- THESE ARE THE MOVED & CORRECTED MOBILE STYLES --- */
+  .card-blurb .lead {
+    font-size: 1.2rem;
   }
-  .author-image-container {
-    order: 1;
-    margin-bottom: 12px;
+  .card-blurb p, .card-blurb li {
+    font-size: 0.95rem;
   }
-  .connect-link {
-    width: 60%;
-  }
-  .author-pic {
-    width: 60%;
-    height: auto;
-    margin-bottom: 12px;
-  }
-}
-@media (max-width: 520px){
-  .page { padding: 14px; margin: 12px auto; }
-  .connect-link { width: 60%; }
-}
+  /* ---------------------------------------------------- */
+  
+  .author-meta {
