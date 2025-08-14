@@ -1,10 +1,10 @@
 :root{
-  --bg: #2e728d;        /* page background */
-  --dark-blue: #113f6b; /* blurb panel */
-  --alt1: #158296;      /* downloads panel */
-  --alt2: #096293;      /* author panel (not used as background now) */
-  --orange: #e6721a;    /* CTA color */
-  --yellow: #f5b413;    /* highlight */
+  --bg: #2e728d;         /* page background */
+  --dark-blue: #113f6b;  /* blurb panel */
+  --alt1: #158296;       /* downloads panel */
+  --alt2: #096293;       /* author panel (not used as background now) */
+  --orange: #e6721a;     /* CTA color */
+  --yellow: #f5b413;     /* highlight */
   --title: #e8decb;
   --linkedin-blue: #0A66C2; /* LinkedIn brand blue */
   --max-width: 1100px;
@@ -62,18 +62,16 @@ header h1 {
   text-shadow: 0 2px 4px rgba(0,0,0,0.55);
 }
 
-/* --- THIS SECTION IS NOW CONSOLIDATED FOR CONSISTENCY --- */
 .card-blurb p, .card-blurb li {
   color: rgba(232,222,203,0.98);
-  font-size: 1.1rem;   /* A consistent base font size */
-  line-height: 1.5;    /* A consistent line height */
-  margin: 0 0 1em 0;   /* A consistent bottom margin */
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0 0 1em 0;
 }
 .card-blurb ul {
-  margin: 0 0 1em 1.25rem; /* Keep indent on list, add bottom margin */
+  margin: 0 0 1em 1.25rem;
   padding: 0;
 }
-/* -------------------------------------------------------- */
 
 /* Two-column container for cover and form */
 .layout-row {
@@ -105,9 +103,9 @@ header h1 {
   background-color: var(--alt1);
   border-radius: 12px;
   padding: 25px 16px;
-  display: block; 
+  display: block;  
   flex: 1;
-  text-align: center; 
+  text-align: center;  
   box-shadow: 0 8px 22px rgba(2,10,20,0.18);
 }
 .form-instructions {
@@ -242,24 +240,61 @@ footer {
   padding-bottom: 18px;
 }
 
-/* Responsive */
+/* ====================================================== */
+/* ============= RESPONSIVE STYLES (MOBILE) ============= */
+/* ====================================================== */
 @media (max-width: 980px){
-  .cover-plate { 
-    max-width: 420px;
-    flex-basis: auto;
-  }
   .layout-row {
     flex-direction: column;
     align-items: center;
   }
-  
-  /* --- THESE ARE THE MOVED & CORRECTED MOBILE STYLES --- */
-  .card-blurb .lead {
-    font-size: 1.2rem;
+  .cover-plate {  
+    max-width: 420px;
+    flex-basis: auto;
   }
-  .card-blurb p, .card-blurb li {
-    font-size: 0.95rem;
-  }
-  /* ---------------------------------------------------- */
   
+  /* --- FIX FOR AUTHOR CARD --- */
   .author-meta {
+    flex-direction: column;   /* Stack image and text vertically */
+    align-items: center;      /* Center the stacked items */
+  }
+  .author-text-container {
+    text-align: center;       /* Center the "About the Author" h3 */
+  }
+  .author-text-container p {
+    text-align: left;         /* Keep the bio paragraph left-aligned for readability */
+  }
+
+  /* --- FIXES FOR FONT SIZES --- */
+  /* Top "Customer Success..." headline */
+  header h1 {
+    font-size: 2.2rem;
+  }
+  
+  /* Lead paragraph in blurb section */
+  .card-blurb .lead {
+    font-size: 1.3rem;
+  }
+  
+  /* Body text in blurb section */
+  .card-blurb p, .card-blurb li {
+    font-size: 1rem;
+  }
+
+  /* "Get Your Free Copy" instructions */
+  .form-instructions {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--title);
+  }
+  
+  /* "About the Author" headline */
+  .author-text-container h3 {
+    font-size: 1.8rem;
+  }
+  
+  /* "Build trust..." tagline */
+  .final-tagline {
+    font-size: 1.8rem;
+  }
+}
