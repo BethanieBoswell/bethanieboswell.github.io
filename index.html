@@ -88,42 +88,6 @@
     </footer>
   </div>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
 
-  function alignAuthorImage() {
-    const meta = document.querySelector('.author-meta');
-    if (!meta) return;
-
-    // This correctly targets the first PARAGRAPH to align with
-    const firstPara = meta.querySelector('.author-text p');
-
-    const imgContainer = document.querySelector('.author-image-container');
-    if (!firstPara || !imgContainer) return;
-
-    // This handles the mobile view correctly
-    if (window.innerWidth < 980) {
-      imgContainer.style.marginTop = '';
-      return;
-    }
-
-    // This calculates the precise offset and applies it
-    const metaRect = meta.getBoundingClientRect();
-    const pRect = firstPara.getBoundingClientRect();
-    const offset = Math.max(0, pRect.top - metaRect.top);
-    imgContainer.style.marginTop = offset + 'px';
-  }
-
-  // These ensure the script runs at the right times
-  window.addEventListener('load', alignAuthorImage);
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(alignAuthorImage).catch(() => {});
-  }
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(alignAuthorImage, 80);
-  });
-</script>
 </body>
 </html>
