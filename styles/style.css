@@ -1,10 +1,10 @@
 :root{
-  --bg: #2e728d;         /* page background */
-  --dark-blue: #113f6b;  /* blurb panel */
-  --alt1: #158296;       /* downloads panel */
-  --alt2: #096293;       /* author panel (not used as background now) */
-  --orange: #e6721a;     /* CTA color */
-  --yellow: #f5b413;     /* highlight */
+  --bg: #2e728d;        /* page background */
+  --dark-blue: #113f6b; /* blurb panel */
+  --alt1: #158296;      /* downloads panel */
+  --alt2: #096293;      /* author panel (not used as background now) */
+  --orange: #e6721a;    /* CTA color */
+  --yellow: #f5b413;    /* highlight */
   --title: #e8decb;
   --linkedin-blue: #0A66C2; /* LinkedIn brand blue */
   --max-width: 1100px;
@@ -20,7 +20,7 @@ body{
   color: var(--title);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  line-height:1.15;
+  line-height:1.55;
 }
 
 .page {
@@ -40,7 +40,6 @@ header h1 {
   color: var(--orange);
   font-size: clamp(22px, 3.6vw, 48px);
   margin: 0;
-  /* faint black outline / drop shadow for orange header */
   text-shadow: 0 2px 4px rgba(0,0,0,0.55);
 }
 
@@ -53,23 +52,21 @@ header h1 {
   color: var(--title);
   margin-bottom: 18px;
 }
-/* Bold lead paragraph */
 .card-blurb .lead {
   font-weight: 700;
   color: var(--yellow);
   font-size: 1.54rem;
-  margin: 0 0 .7em 0;
+  margin: 0 0 1em 0;
   text-shadow: 0 2px 4px rgba(0,0,0,0.55);
 }
-
 .card-blurb p, .card-blurb li {
   color: rgba(232,222,203,0.98);
-  font-size: 1.0rem;
-  line-height: 1.15;
-  margin: 0 0 .7em 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0 0 1em 0;
 }
 .card-blurb ul {
-  margin: 0 0 .7em 1.25rem;
+  margin: 0 0 1em 1.25rem;
   padding: 0;
 }
 
@@ -98,14 +95,15 @@ header h1 {
   height: auto;
   max-width: 100%;
 }
+
 /* Downloads panel */
 .card-downloads {
   background-color: var(--alt1);
   border-radius: 12px;
   padding: 25px 16px;
-  display: block;  
+  display: block; 
   flex: 1;
-  text-align: center;  
+  text-align: center; 
   box-shadow: 0 8px 22px rgba(2,10,20,0.18);
 }
 .form-instructions {
@@ -118,14 +116,18 @@ header h1 {
   align-items:center;
   flex-wrap:wrap;
 }
+
+/* Main Button Style */
 .btn {
   background: var(--orange);
-  color: #111827;
+  color: var(--dark-blue); /* Set text color to dark blue */
   padding: 12px 20px;
   border-radius: 10px;
   text-decoration:none;
   font-weight:700;
   font-family: "Atkinson Hyperlegible", sans-serif;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Added responsive font size */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); /* Added subtle drop shadow */
   box-shadow: 0 8px 20px rgba(0,0,0,0.28), 0 2px 6px rgba(230,114,26,0.12);
   transition: transform .18s ease, box-shadow .28s ease;
   border: 1px solid rgba(0,0,0,0.06);
@@ -151,24 +153,15 @@ header h1 {
   box-shadow: 0 8px 22px rgba(2,10,20,0.12);
   display: flex;
   gap: 18px;
-  align-items: flex-start; /* This sets the baseline top alignment */
+  align-items: flex-start;
   color: rgba(232,222,203,0.98);
 }
-
 .author-text-container {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   text-align: left;
 }
-
-.author-image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-}
-
 .author-text-container h3 {
   margin: 0 0 12px 0;
   font-family: "Oswald", sans-serif;
@@ -180,12 +173,17 @@ header h1 {
 .author-text p {
   margin: 0 0 12px 0;
   font-size: 1rem;
-  line-height: 1.15;
+  line-height: 1.5;
 }
-
+.author-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
 .author-pic {
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 12px 36px rgba(0,0,0,0.45);
@@ -196,7 +194,7 @@ header h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 220px;
+  width: 180px;
   background-color: var(--linkedin-blue);
   color: #fff;
   font-weight: 700;
@@ -244,61 +242,53 @@ footer {
   padding-bottom: 18px;
 }
 
-/* ====================================================== */
-/* ============= RESPONSIVE STYLES (MOBILE) ============= */
-/* ====================================================== */
+/* Responsive */
 @media (max-width: 980px){
+  .cover-plate { 
+    max-width: 420px;
+    flex-basis: auto;
+  }
   .layout-row {
     flex-direction: column;
     align-items: center;
   }
-  .cover-plate {  
-    max-width: 420px;
-    flex-basis: auto;
+  .card-blurb .lead {
+    font-size: 1.2rem;
   }
-  
-  /* --- FIX FOR AUTHOR CARD --- */
+  .card-blurb p, .card-blurb li {
+    font-size: 0.95rem;
+  }
   .author-meta {
-    flex-direction: column;   /* Stack image and text vertically */
-    align-items: center;      /* Center the stacked items */
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
   }
   .author-text-container {
-    text-align: center;       /* Center the "About the Author" h3 */
+    order: 2;
   }
-  .author-text-container p {
-    text-align: left;         /* Keep the bio paragraph left-aligned for readability */
+  .author-image-container {
+    order: 1;
+    margin-bottom: 12px;
   }
-
-  /* --- FIXES FOR FONT SIZES --- */
-  /* Top "Customer Success..." headline */
+  .connect-link {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .author-pic {
+    width: 60%;
+    height: auto;
+    margin-bottom: 12px;
+    margin: 0 auto 12px auto;
+  }
   header h1 {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
   }
-  
-  /* Lead paragraph in blurb section */
-  .card-blurb .lead {
-    font-size: 1.3rem;
+  .author-text-container h3, .final-tagline {
+    font-size: 1.6rem;
   }
-  
-  /* Body text in blurb section */
-  .card-blurb p, .card-blurb li {
-    font-size: 1rem;
-  }
-
-  /* "Get Your Free Copy" instructions */
-  .form-instructions {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--title);
-  }
-  
-  /* "About the Author" headline */
-  .author-text-container h3 {
-    font-size: 1.8rem;
-  }
-  
-  /* "Build trust..." tagline */
-  .final-tagline {
-    font-size: 1.8rem;
-  }
+}
+@media (max-width: 520px){
+  .page { padding: 14px; margin: 12px auto; }
+  .connect-link { width: 80%; }
+  .author-pic { width: 80%; }
 }
