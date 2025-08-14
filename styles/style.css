@@ -184,8 +184,8 @@ header h1 {
 }
 
 .author-pic {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 12px 36px rgba(0,0,0,0.45);
@@ -196,7 +196,7 @@ header h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 180px;
+  width: 220px;
   background-color: var(--linkedin-blue);
   color: #fff;
   font-weight: 700;
