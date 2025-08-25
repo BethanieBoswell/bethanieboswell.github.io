@@ -42,7 +42,7 @@
         <header>
           <h1>Get Your Free Copy!</h1>
         </header>
-        <p class="form-instructions" style="max-width: 600px; margin: 15px auto 30px auto;">Enter your name and email below, and I'll personally send you the download link for the PDF.</p>
+        <p class="form-instructions" style="max-width: 600px; margin: 15px auto 30px auto;">Enter your name and email below, and I'll personally send you the PDF.</p>
         <div style="max-width: 400px; margin: 0 auto; text-align: left;">
           <form action="https://formspree.io/f/xjkozvwv" method="POST">
             <div style="margin-bottom: 15px;">
@@ -53,12 +53,12 @@
               <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Your Email:</label>
               <input type="email" name="email" id="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
             </div>
-            <button type="submit" class="btn" style="width: 100%; padding: 12px 20px;">Send me the eBook.</button>
+            <button type="submit" class="btn" style="width: 100%; padding: 12px 20px;">Send me the e-book.</button>
           </form>
         </div>
-        <p style="margin-top: 30px;">
-          <strong>Prefer to buy? <a href="<PUT AMAZON HYPERLINK HERE>" target="_blank" rel="noopener">Purchase on Amazon.</a></strong>
-        </p>
+<p class="form-instructions" style="margin-top: 30px;">
+  <strong>Prefer to buy? <a href="https://a.co/d/0yIJPTr" target="_blank" rel="noopener">Purchase on Amazon.</a></strong>
+</p>
       </div>
       
     </section>
@@ -88,6 +88,42 @@
     </footer>
   </div>
 
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
+  function alignAuthorImage() {
+    const meta = document.querySelector('.author-meta');
+    if (!meta) return;
+
+    // This correctly targets the first PARAGRAPH to align with
+    const firstPara = meta.querySelector('.author-text p');
+
+    const imgContainer = document.querySelector('.author-image-container');
+    if (!firstPara || !imgContainer) return;
+
+    // This handles the mobile view correctly
+    if (window.innerWidth < 980) {
+      imgContainer.style.marginTop = '';
+      return;
+    }
+
+    // This calculates the precise offset and applies it
+    const metaRect = meta.getBoundingClientRect();
+    const pRect = firstPara.getBoundingClientRect();
+    const offset = Math.max(0, pRect.top - metaRect.top);
+    imgContainer.style.marginTop = offset + 'px';
+  }
+
+  // These ensure the script runs at the right times
+  window.addEventListener('load', alignAuthorImage);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(alignAuthorImage).catch(() => {});
+  }
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(alignAuthorImage, 80);
+  });
+</script>
 </body>
 </html>
