@@ -61,8 +61,8 @@ header h1 {
 }
 .card-blurb p, .card-blurb li {
   color: rgba(232,222,203,0.98);
-  font-size: 1.1rem;
-  line-height: 1.5;
+  font-size: 1.25rem;
+  line-height: 1.2;
   margin: 0 0 1em 0;
 }
 .card-blurb ul {
